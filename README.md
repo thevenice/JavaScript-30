@@ -10,6 +10,6 @@
      -but we have to remove that styling after specific time.<br/>
      -so we added foreach into keys and removed that class at that specific time.<br/>
      -so this makes our display program like a buzzer as soon as i press it become red for specific time.<br/>
-     <p>
+     </p>
 
 -----------------------------------------------
