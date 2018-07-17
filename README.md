@@ -1,7 +1,7 @@
 <h1>#JavaScript-30 logs:<h1>
 <h2>Day 1 : Drum sounds with keyboard</h2>
      <h3>explanation of program:</h3>
-      <em> What this program is doing?<em>
+      <h4> What this program is doing?<h4>
       <p>
      -this script connects one of my key and an audio file with a attribute data-key.<br/>
      -this thing happens within html but the transition that we have sync with over keys is inside css.<br/>
