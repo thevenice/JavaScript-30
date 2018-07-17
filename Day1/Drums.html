@@ -41,11 +41,34 @@
 <audio data-key="76" src="sounds/tom.wav"></audio>
 
 <script>
+ window.addEventListener('keydown',(e)=>{
+     const audio=document.querySelector(`audio[data-key='${e.keyCode}']`);
+     //if there is no audio stop f(n) by returning nothing
+     if(!audio) return;
+     //if you play audio without initializing it zero it will take secs to play second time
+     //use currentitme to break loop.
+     audio.currentTime=0;
+     //now we can play audio using .play() f(n)
+     audio.play();
+     console.log(audio);
+ });
+
+
+
+
+
+
+
     /*keycode property
     const keys=document.querySelector('.key');
     window.addEventListener('keydown',(e)=>{
         console.log(e.keyCode);
     });
+
+
+    //attribute selector
+    window.addEventListener('eventName',(e)=>{
+        const newtagName= document.querySelector(`tagName[this is attr. selector]`);
     */
     
 </script>
