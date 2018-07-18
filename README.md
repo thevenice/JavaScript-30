@@ -13,3 +13,20 @@
      </p>
 
 -----------------------------------------------
+
+<h2>Day 2 : Clock with real time and animation</h2>
+     <h3>explanation of program:</h3>
+      <h4> What this program is doing?<h4>
+
+<p> 
+  -we have to make function inside 
+  -we have to rotate the 3 clock hands with respect to now time 
+  -and make rotate at their respective degree
+  -we grabbed [((sec,min,hour) hands] from thier divs
+  -we grabbed current date(nowDate)
+  -we made 3 variable with to get current value of [(sec,min,hour) using nowDate.getX()] 
+  -we made 3 more variables to get degrees of [(sec,min,hour) using ((varOfCurrValue/60)*360)+90]
+  -we calculated degs+ patched default L-R rotation problem to +90deg
+  -now we add style in tranform element of [((sec,min,hour) hands]
+  -we add value of var we created to get rotation degs in styles. 
+  </p>
