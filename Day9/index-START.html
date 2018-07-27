@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<style>
+  /* p{font-size:44px;} */
+</style>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 , breed: 'doberman'}, { name: 'hugo', age: 8 , breed: 'saint bernard'}];
+
+    function makeGreen() {
+      const elm=document.querySelector('p');
+      elm.style.color='green';
+      elm.style.fontSize="44px";
+    }
+
+    // Regular
+    console.log(`Math me:`,6+9);
+    // Interpolated
+    console.log('hey this is : %s string',"'i am outta boy'");
+    // Styled
+    console.log('%c here comes => the boom',"font-size:30px; background:#000;color:#fff; border-radius:20px; text-shadow: 5px 5px 0 blue, 3px 3px 0 red;");
+
+    // warning!
+    console.warn('Injected');
+    // Error :|
+      console.error('breach found');
+    // Info
+      console.info('\n-----------------\nAMAZED\n-----------------');
+    // Testing
+    const p= document.querySelector('p');
+     console.assert(p.classList.contains(''),'thats not what you think')
+    // clearing
+    //  console.clear();
+    // Viewing DOM Elements
+    console.log(p);
+    console.log('\n ------------------------------\nhey what kind of prototypes and methods i can use on paragraphy ?\n ------------------------------');
+    console.log('\n -----> down here\n');
+    console.dir(p);
+    // console.clear();
+    // Grouping together
+    
+     dogs.forEach((dogPara)=>{
+       console.groupCollapsed(`${dogPara.name}`);
+       console.log(`Lets Meet ${dogPara.name}, he is a ${dogPara.breed}.`);
+       console.log(`And this one is ${dogPara.age} years old`);
+       console.groupEnd(`${dogPara.name}`);
+     });
+
+    
+    // counting
+    console.count('yeah?');
+    console.count('hurray');
+    console.count('hurray');
+    console.count('yeah?');
+    console.count('hurray');
+    console.count('yeah?');
+    // timing
+    console.time('fetching data');
+    fetch(p).then(data=>data.json).then(data=>{
+      return
+      console.timeEnd('fetching data');
+      console.log(data);}
+    )
+    console.table(dogs)
+    
+  </script>
+</body>
+</html>

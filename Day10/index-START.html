@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hold Shift to Check Multiple Checkboxes</title>
+</head>
+
+<body>
+  <style>
+    html {
+      font-family: sans-serif;
+      background: #6000ffc4;
+    }
+
+    .inbox {
+      max-width: 400px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #F1F1F1;
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+
+    input:checked+p {
+      background: #F9F9F9;
+      text-decoration: line-through;
+    }
+
+    input[type="checkbox"] {
+      margin: 20px;
+    }
+
+    p {
+      margin: 0;
+      padding: 20px;
+      transition: background 0.2s;
+      flex: 1;
+      font-family: 'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+      border-left: 1px solid #D1E2FF;
+    }
+  </style>
+  <!--
+   The following is a common layout you would see in an email client.
+
+   When a user clicks a checkbox, holds Shift, and then clicks another checkbox a few rows down, all the checkboxes inbetween those two checkboxes should be checked.
+
+  -->
+  <div class="inbox">
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an inbox layout.</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check one item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Hold down your Shift key</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check a lower item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Everything inbetween should also be set to checked</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Try do it without any libraries</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Just regular JavaScript</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Good Luck!</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Don't forget to tweet your result!</p>
+    </div>
+  </div>
+
+  <script>
+    //we have to select all the checkbox attributes inside the list
+    //but how ? how can we select attributes ?
+    //we have to select with there items tag name and the main parent node class name
+    // so what we do inside Qselectorall we ask for ->
+    //parent className+item tag name + item type attr.
+    //below
+
+    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+    //-----------------cb fn  for mouse event---------------/
+    //we will pass a callback fn for event
+    // now inside fn we will give lastChecked value of this
+    //LASTCHECKED will give us log of which item we clicked last time
+    //or we can say which item get iterate through the function
+    //if(this.check)console.log(this.checked) will provide as alert 
+    //if anything get checked it alert true in console
+    //so we will add another functionality in this
+    //we will verify if (e.shitkey) is used with click then log back true
+    //now we now get alert only while we check using(shiftkey+click)
+    //now we are getting data back for functionality that we want
+    //we will create now a element that can log whats between them
+    //now we have to declare a variable inBetween with value of false;
+    //make sure we wont use const because we will mutate this var.
+    //we declare a var called lastChecked without value out now yes now
+    //after declare lastcheck wont work 
+    //now inside theloop we will comment out the console.log(this.checked)
+    // and we will loop Checkboxes inside if statement 
+    //we will verify that if check = this or check=lastchecked
+    //if this statement is true it will change inBetween value
+    //we will give inBetween=!inBetween
+    // means it will automate betwwen true and false itself
+    //and if inbetween is active we pass value true for check(item).checked
+    //below
+    let lastChecked;
+    let inBetween = false;
+    function handlefn(e) {
+
+      if (e.shiftKey && this.checked) {
+        // console.log(this.checked);
+        checkboxes.forEach(check => {
+          if (check === this || check === lastChecked) {
+            inBetween = !inBetween;
+          }
+          if (inBetween) {
+            check.checked = true;
+          }
+        })
+      }
+
+      lastChecked = this;
+    }
+    //now i have to add an eventListner to each of them i selected
+    //so we will use .foreach method to do so
+    //below
+
+    checkboxes.forEach(cb => cb.addEventListener('click', handlefn));
+    //about above
+    //what we did here that we can now get back a log when we check anyitem
+    //mean when we click something mouse event gonna happen
+
+
+  </script>
+</body>
+
+</html>
