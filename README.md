@@ -35,7 +35,7 @@
      <h3>explanation of program:</h3>
       <h4> What this program is doing?<h4>
   <p>
-    - -----------------cb fn  for mouse event---------------/<br>
+    - -----------------callback f(n) for Checkboxes eventlistener ---------------<br>
     - we will pass a callback fn for event<br>
     -  now inside fn we will give lastChecked value of this<br>
     - LASTCHECKED will give us log of which item we clicked last time<br>
