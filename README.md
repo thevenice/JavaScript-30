@@ -12,13 +12,13 @@
      -so this makes our display program like a buzzer as soon as i press it become red for specific time.<br/>
      </p>
 
------------------------------------------------
+---
 
 <h2>Day 2 : Clock with real time and animation</h2>
      <h3>explanation of program:</h3>
       <h4> What this program is doing?<h4>
 
-<p> 
+<p>
   -we have to make function inside <br/>
   -we have to rotate the 3 clock hands with respect to now time <br/>
   -and make rotate at their respective degree<br/>
@@ -30,3 +30,33 @@
   -now we add style in tranform element of [((sec,min,hour) hands]<br/>
   -we add value of var we created to get rotation degs in styles. <br/>
   </p>
+         <h2>i will update soon about day 3 to 9 </h2>
+<h2>Day 10 : CheckBoxes with Multi-Selection </h2>
+     <h3>explanation of program:</h3>
+      <h4> What this program is doing?<h4>
+  <p>
+    - -----------------cb fn  for mouse event---------------/<br>
+    - we will pass a callback fn for event<br>
+    -  now inside fn we will give lastChecked value of this<br>
+    - LASTCHECKED will give us log of which item we clicked last time<br>
+    - or we can say which item get iterate through the function<br>
+    - if(this.check)console.log(this.checked) will provide as alert <br>
+    - if anything get checked it alert true in console<br>
+    - so we will add another functionality in this<br>
+    - we will verify if (e.shitkey) is used with click then log back true<br>
+    - now we now get alert only while we check using(shiftkey+click)<br>
+    - now we are getting data back for functionality that we want<br>
+    - we will create now a element that can log whats between them<br>
+    - now we have to declare a variable inBetween with value of false;<br>
+    - make sure we wont use const because we will mutate this var.<br>
+    - we declare a var called lastChecked without value out now yes now<br>
+    - after declare lastcheck wont work <br>
+    - now inside theloop we will comment out the console.log(this.checked)<br>
+    -  and we will loop Checkboxes inside if statement <br>
+    - we will verify that if check = this or check=lastchecked<br>
+    - if this statement is true it will change inBetween value<br>
+    - we will give inBetween=!inBetween<br>
+    -  means it will automate betwwen true and false itself<br>
+    - and if inbetween is active we pass value true for check(item).checked<br>
+    - more instruction inside day10 folders index.html file
+     </p>
