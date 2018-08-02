@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>updater</title>
+</head>
+<body>
+  <h2>Update CSS Variable with <span class="hl">JS</span></h2>
+
+
+    <style>
+        :root{
+            --base:#000;
+            --spacing:10px;
+            --blur:10px;
+        }
+        /* root */
+              
+        .img {
+            padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+     
+        }
+        .hl {
+      color: var(--base);
+    }
+        /* other styling not in task*/
+         body{
+             text-align: center;
+             background: rgb(35, 31, 75);
+             font-family: Arial, Helvetica, sans-serif;
+             font-weight: 100;
+             font-size: 50px;0
+         }
+         .controls{
+             margin-bottom: 50px;
+         }
+           input{
+               width: 100px;
+           }
+         /* other styling not in task*/
+   
+
+    </style>
+
+    <section id="container" class="container">
+        <div class="controls">
+            <label for="spacing">
+            <input type="range" id="spacing" name="spacing" value="10" min="10" max="200" data-sizing="px">
+            </label>
+
+            <label for="blur">
+            <input type="range" id="blur" name="blur" value="10" min="0" max="25" data-sizing="px">
+            </label>
+
+            <label for="base">
+            <input type="color" id="base" name="base" value="#ffc600">
+            </label>
+        </div>
+           
+
+        
+
+        
+            <img class="img" src="milkyway.jpg" alt="milky way"  style="width: 800px; height: 500px;">
+        
+    </section>
+    <script>
+     let controls= document.querySelectorAll('.controls input');
+     function handleUpdates(){
+         const suffix=this.dataset.sizing|| "";
+         document.documentElement.style.setProperty(`--${this.name}`,this.value+suffix);
+
+         }
+     controls.forEach(input=>input.addEventListener('change',handleUpdates));
+     controls.forEach(input=>input.addEventListener('mousemove',handleUpdates));
+    </script>
+</body>
+</html>
