@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding JavaScript's Capture</title>
+</head>
+
+<body class="bod">
+
+  <div class="one">
+    <div class="two">
+      <div class="three">
+      </div>
+    </div>
+  </div>
+
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    div {
+      width: 100%;
+      padding: 100px;
+    }
+
+    .one {
+      background: thistle;
+    }
+
+    .two {
+      background: mistyrose;
+    }
+
+    .three {
+      background: coral;
+    }
+  </style>
+
+  <button></button>
+  <script>
+    const divs = document.querySelectorAll('div');
+    const button = document.querySelector('button')
+    // fn
+    function boxFn(e) {
+      // e.stopPropagation();
+      console.log(this.classList.value);
+    }
+
+    divs.forEach(box => box.addEventListener('click', boxFn, { capture: false, once: true }));
+    // document.body.addEventListener('click', boxFn);
+    // divs.forEach(box => box.addEventListener('click', boxFn, { capture: true }));
+    //{ capture: true } use to get capture list in top to bottom style instead of bottom to top
+    // e.stopPropagation(); is used to prevent bubbling, it stop event trigger in parent divs
+    //{  once: true } once only fire event once and the remove event listener
+    button.addEventListener(
+      'click',
+      () => {
+        console.log('once')
+
+      }, { once: true })
+  </script>
+</body>
+
+</html>
